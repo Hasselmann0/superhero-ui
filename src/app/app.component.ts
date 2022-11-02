@@ -10,6 +10,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'superhero-ui';
   heroes: SuperHero[] = [];
+  heroToEdit?: SuperHero;
 
   constructor(private superHeroService: SuperHeroService)
   {
@@ -20,4 +21,18 @@ export class AppComponent {
     .getSuperHeroes()
     .subscribe((result: SuperHero[]) => (this.heroes = result));
   }
+
+  updateHeroList(heroes: SuperHero[]) {
+    this.heroes = heroes;
+  }
+
+initNewHero(){
+  this.heroToEdit = new SuperHero();
+}
+
+editHero(hero: SuperHero) {
+this.heroToEdit = hero;
+}
+
+
 }
