@@ -34,5 +34,8 @@ editHero(hero: SuperHero) {
 this.heroToEdit = hero;
 }
 
+deleteHero(hero: SuperHero) {
+  this.heroToEdit = hero;
+}
 
 }

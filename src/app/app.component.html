@@ -1,11 +1,12 @@
-<button (click)="initNewHero()">Create New Hero</button>
+<app-header></app-header>
 
-<table>
+<table id="hero">
   <thead>
     <th>Name</th>
     <th>First Name</th>
     <th>Last Name</th>
     <th>Place</th>
+    <th></th>
   </thead>
   <tbody>
     <tr *ngFor="let hero of heroes">
@@ -13,7 +14,11 @@
       <td>{{ hero.firstName }}</td>
       <td>{{ hero.lastName }}</td>
       <td>{{ hero.place }}</td>
-      <td><button (click)="editHero(hero)">Edit</button></td>
+      <td>
+        <button (click)="editHero(hero)">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </td>
     </tr>
   </tbody>
 </table>
@@ -22,3 +27,9 @@
   [hero]="heroToEdit"
   (heroesUpdated)="updateHeroList($event)"
 ></app-edit-hero>
+
+<button (click)="initNewHero()">
+  <mat-icon>person_add</mat-icon>
+</button>
+
+<app-footer></app-footer>
